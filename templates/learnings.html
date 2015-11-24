@@ -1,0 +1,16 @@
+<div class="list">
+  <div class="add">
+    <a href="" ng-click="addLearning()">+ Add a new topic to learn</a>
+  </div>
+  <div class="item" ng-class="{'editing-item': editing, 'edited': learing.edited, 'completed': learning.completed}"
+  ng-repeat="learning in learnings | orderBy: 'completed'" ng-init="learning.completed = false">
+    <input ng-model="learning.completed" type="checkbox"/>
+    <span ng-click="learning.completed = !learning.completed; learning.edited = true"></span>
+    <label ng-click="editing = true" ng-hide="editing">{{learning.name}}</label>
+    <input ng-change="learning.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="learning.name" class="editing-label" type="text"/>
+    <div class="actions">
+      <a href="" ng-click="saveLearnings(learning)">Save</a>
+      <a href="" ng-click="deleteLearning(learning, $index)" class="Delete">Delete</a>
+    </div>
+  </div>
+</div>
