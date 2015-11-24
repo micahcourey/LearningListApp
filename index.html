@@ -10,11 +10,11 @@
   <div ng-controller="mainCtrl" class="list">
     <div class="item" ng-class="{'editing-item': editing, 'edited': learing.edited}" ng-repeat="learning in learnings">
       <input ng-model="learning.completed" type="checkbox"/>
-      <label ng-hide="editing" class="editing-label">{{learning.name}}</label>
+      <label ng-hide="editing">{{learning.name}}</label>
       <input ng-change="learning.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="learning.name" class="editing-label" type="text"/>
       <div class="actions">
-        <a href="" ng-click="editing = !editing">Edit</a>
-        <a href="">Save</a>
+        <a href="" ng-click=" editing = !editing">Edit</a>
+        <a href="" ng-click="helloConsole()">Save</a>
         <a href="" class="Delete">Delete</a>
       </div>
     </div>
