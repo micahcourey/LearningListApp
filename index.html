@@ -8,14 +8,17 @@
 <body ng-app="learningApp">
   <h1>My Learning List</h1>
   <div ng-controller="mainCtrl" class="list">
+    <div class="add">
+      <a href="" ng-click="addLearning()">Add a new topic to learn</a>
+    </div>
     <div class="item" ng-class="{'editing-item': editing, 'edited': learing.edited}" ng-repeat="learning in learnings">
       <input ng-model="learning.completed" type="checkbox"/>
       <label ng-hide="editing">{{learning.name}}</label>
       <input ng-change="learning.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="learning.name" class="editing-label" type="text"/>
       <div class="actions">
         <a href="" ng-click=" editing = !editing">Edit</a>
-        <a href="" ng-click="helloConsole()">Save</a>
-        <a href="" class="Delete">Delete</a>
+        <a href="" ng-click="saveLearning(learning)">Save</a>
+        <a href="" ng-click="deleteLearning(learning, $index)" class="Delete">Delete</a>
       </div>
     </div>
   </div>
